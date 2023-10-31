@@ -34,21 +34,16 @@ public class ThreadDistribution {
         int maxThreadNumber = 4; // 0-1-2-3
         int thread = 1;
 
-        int iThreadNumber = n/maxThreadNumber; // operacion para saber el numero de n que hay en cada hilo
-        int firstThreadNumber = iThreadNumber*thread; // operacion para saber el primer n del hilo correspondiente
+        int tamanyo = (n+maxThreadNumber-1)/maxThreadNumber;
+        int inicio = thread*tamanyo;
+        int fin = Math.min(n,(thread+1)*tamanyo);
 
         System.out.println("Block thread distribution\n" +
                            "---------------------------\n" +
                            "h"+thread);
 
-        int count = 0;
-        for(int i = firstThreadNumber; i<n; i++) {
+        for (int i = inicio; i< fin; i++) {
             System.out.println(i);
-            count++;
-
-            if (count==iThreadNumber){
-                break;
-            }
         }
     }
 

@@ -3,7 +3,7 @@ package block2.controles;
 public class Threads {
 
     public static void main(String[] args) {
-        MyThread[] array = new MyThread[101];
+        MyThread[] array = new MyThread[200];
 
         for (int i = 0; i < array.length; i++){
             array[i] = new MyThread(i);
@@ -33,7 +33,7 @@ class MyThread extends Thread{
 
     @Override
     public void run(){
-        if (id % 3 == 0 && id % 5 == 0){
+        if (id % 3 == 0 && id % 4 == 0){
             System.out.println("La hebra "+id+" es divisible per 3 y 5");
         }
     }
